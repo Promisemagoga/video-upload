@@ -12,6 +12,9 @@ function App() {
   const [instructor, setInstructor] = useState("")
   const [videos, setVideos] = useState([])
   const [title, setTitle] = useState("")
+  const [moduleDescription, setModuleDescription] = useState("")
+  
+
 
   const handleFileChange = (event) => {
     for (let i = 0; i < event.target.files.length; i++) {
@@ -38,9 +41,12 @@ function App() {
         instructor: instructor,
         modules: [
           {
+           module1: { 
             title: title,
+            moduleDescription: moduleDescription,
             content: videoUrl.map((video) => video.video),
             contentUrl: videoUrl.map((video) => video.url)
+          }
 
           },
         ],
@@ -61,6 +67,7 @@ function App() {
       <input placeholder='Enter name of the course...' onChange={(event) => setName(event.target.value)} />
       <input placeholder='Enter name of the instructor...' onChange={(event) => setInstructor(event.target.value)} />
       <textarea placeholder='Enter course description...' onChange={(event) => setDescription(event.target.value)} />
+      <textarea placeholder='Enter module description...' onChange={(event) => setModuleDescription(event.target.value)} />
       <input placeholder='Enter title...' onChange={(event) => setTitle(event.target.value)} />
       <input type="file" accept="video/*" multiple onChange={handleFileChange} />
       <button onClick={uploadCourse}>Upload Course</button>
