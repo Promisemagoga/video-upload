@@ -24,4 +24,4 @@ const db = getFirestore(app)
 const storage = getStorage(app)
 // const AuthContext =createContext()
 
-export {auth, db, storage}
+export { db, storage}
