@@ -17,8 +17,8 @@ export default function SignIn() {
                 <img src={require("../assets/Logo.jpg")} width={"80%"} height={"35%"} />
             </Box>
             <Box bgcolor={"#1C3F53"} sx={{ width: "65%", height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Paper sx={{ width: "70%", height: "90vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", borderRadius: 5 }}>
-                    <Box sx={{ width: "70%", height: "100vh", display: "flex", flexDirection: "column", rowGap: "40px", justifyContent: "center", alignItems: "center" }}>
+                <Paper sx={{ width: "70%", height: "auto", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", borderRadius: 5 }}>
+                    <Box sx={{ width: "70%", height: "auto", display: "flex", flexDirection: "column", rowGap: "40px", justifyContent: "center", alignItems: "center" }}>
                         <Typography variant='h1' fontSize="36px" fontWeight='500'>
                             EZAMAZWE EDUTECH
                         </Typography>
