@@ -82,6 +82,9 @@ export default function HellowWorld() {
             <Typography variant='h6' sx={{ margin: 3 }} >{inputs.age}</Typography>
             <Typography variant='h6' sx={{ margin: 3 }} >{inputs.gender}</Typography>
 
+
+            <img src={require("../assets/Logo.jpg")}/>
+
         </div>
     )
 }

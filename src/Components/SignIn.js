@@ -1,63 +1,67 @@
-// import Button from '@mui/material/Button';
-import { Box, Button, Container, Grid, Paper, TextField, Typography } from '@mui/material'
-import React from 'react'
-// import { makeStyles } from '@material-ui/core/styles';
 
-
-// const useStyles = makeStyles({
-//     root: {
-//       background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-//       border: 0,
-//       borderRadius: 3,
-//       boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-//       color: 'white',
-//       height: 48,
-//       padding: '0 30px',
-//     },
-//   });
+import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { Box, Button, Container, Grid, IconButton, InputAdornment, Paper, TextField, Typography } from '@mui/material'
+import React, { useState } from 'react'
+// import { Visibility, VisibilityOff } from '@material-ui/icons';
 
 export default function SignIn() {
-    // const classes = useStyles();
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleTogglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
     return (
-        <Grid container  direction={'row'}>
-            <Box style={{backgroundColor: "#1C3F53"}} width={883} height={700}>
-                <Paper square={false} style={{padding:20, width: "450px",marginLeft: 'auto', marginRight: 'auto'}}>
-                <Typography variant='h3' component="h1" fontSize="32px">
-                    EZAMAZWE EDUTECH
-                </Typography>
-                <Typography variant='P' component="P" mt="50px" mb={2}>
-                    Login to your account
-                </Typography>
-                <Typography variant='P' component="P" mt="57px" mb={2} align='left'>
-                    Email address
-                </Typography>
-                <TextField id="outlined-basic" variant="outlined"  fullWidth/>
-                <Typography variant='P' component="P" mt={3} mb={2} align='left'>
-                    Your password
-                </Typography>
-                <TextField id="outlined-basic" label="Outlined" variant="outlined" fullWidth/>
-                <br />
-                <br />
-                <Button variant="contained" size='large'>SIGN IN</Button>
+        <Box width={"100%"} height={"100vh"} sx={{ display: "flex" }}>
+            <Box bgcolor={"#fff"} sx={{ width: "35%", height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <img src={require("../assets/Logo.jpg")} width={"80%"} height={"35%"} />
+            </Box>
+            <Box bgcolor={"#1C3F53"} sx={{ width: "65%", height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <Paper sx={{ width: "70%", height: "90vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", borderRadius: 5 }}>
+                    <Box sx={{ width: "70%", height: "100vh", display: "flex", flexDirection: "column", rowGap: "40px", justifyContent: "center", alignItems: "center" }}>
+                        <Typography variant='h1' fontSize="36px" fontWeight='500'>
+                            EZAMAZWE EDUTECH
+                        </Typography>
+                        <Typography variant='P' fontSize="24px" fontWeight="400" >
+                            Login to your account
+                        </Typography>
+                        <Box sx={{ width: "100%", display: "flex", flexDirection: "column", rowGap: "10px" }}>
+                            <Typography variant='P' marginRight="auto" sx={{ fontSize: "16px", fontWeight: "400", color: "#1C3F53" }}>
+                                Email address
+                            </Typography>
+                            <TextField id="outlined-basic" variant="outlined" sx={{ width: "100%" }} inputProps={{ style: { height: '30px', borderRadius: "20px" } }} />
+                            <Typography variant='P' marginRight="auto" sx={{ fontSize: "18px", fontWeight: "400", color: "#FF6347" }}>
+                                #email address is invalid
+                            </Typography>
+                        </Box>
+                        <Box sx={{ width: "100%", display: "flex", flexDirection: "column", rowGap: "10px" }}>
+                            <Typography variant='P' marginRight="auto" sx={{ fontSize: "16px", fontWeight: "400", color: "#1C3F53" }}>
+                                Your password
+                            </Typography>
+                            <TextField
+                                type={showPassword ? 'text' : 'password'}
+                                InputProps={{
+                                    endAdornment: (
+                                        <InputAdornment position="end">
+                                            <IconButton onClick={handleTogglePasswordVisibility}>
+                                                {showPassword ? <Visibility /> : <VisibilityOff />}
+                                            </IconButton>
+                                        </InputAdornment>
+                                    ),
+                                }}
+
+                                id="outlined-basic" variant="outlined" sx={{ width: "100%" }} inputProps={{ style: { height: '30px' } }} />
+                            <Typography variant='P' marginRight="auto" sx={{ fontSize: "18px", fontWeight: "400", color: "#FF6347" }}>
+                                #password is invalid
+                            </Typography>
+                        </Box>
+                        <Typography variant='P' marginLeft="auto" sx={{ textDecoration: "underLine", fontSize: "16px", fontWeight: "400", color: "#1C3F53" }}>
+                            Forgot Your password
+                        </Typography>
+                        <Button variant="contained" sx={{ width: "60%", height: "50px", borderRadius: "30px", fontSize: "20px", fontWeight: "400", backgroundColor: "#1C3F53" }}>SIGN IN</Button>
+                    </Box>
                 </Paper>
             </Box>
-           
-
-
-
-
-            {/* <Button variant="outlined" color='error'>Cancel</Button>
-        <br/>
-        <br/> */}
-            {/* <br/>
-        <br/>
-        <Button color='success' variant="contained" >Success</Button>
-        <br/>
-        <br/> */}
-            {/* <Button variant="cta" >SIGN IN</Button>
-
-        <Button size="large" variant="contained">Large</Button> */}
-
-        </Grid>
+        </Box>
     )
 }
